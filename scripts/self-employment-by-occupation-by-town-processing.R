@@ -23,7 +23,7 @@ path_to_raw <- (paste0(getwd(), "/", raw_location))
 options(scipen=999)
 acsdata <- getACSData(
     getCTGeos("town"),
-    yearList = 2010:2018,
+    yearList = 2010:2019,
     table = "S2406"
 )
 
@@ -397,12 +397,9 @@ occupation_final <- occupation_fips %>%
     
 write.table(
     occupation_final,
-    file.path("data", "self-employment-occupation-town-2018.csv"),
+    file.path("data", "self-employment-occupation-town-2019.csv"),
     sep = ",",
     row.names = F,
     col.names = T,
     na = "-6666" 
 )
-
-grep( "(.*Total.*Estimate|.*Estimate.*Total).*Civilian employed population 16 years and over$", names(estimates) )
-names(estimates)
